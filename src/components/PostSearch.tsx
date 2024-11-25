@@ -6,6 +6,8 @@
 import { FormEvent, useState } from "react";
 import { IPosts } from "@/services/types/types";
 import { useRouter } from "next/navigation";
+import useSWR from "swr";
+import { getPostsBySearch } from "@/services/app/serchPosts";
 
 type TSearch = {
   onSearch: IPosts[]
@@ -13,11 +15,15 @@ type TSearch = {
 
 const PostSearch = () => {
   const [search, setSearch] = useState<string>("")
-  const router = useRouter()
+  // const router = useRouter()
+  const { mutate } = useSWR("posts")
 
   const onHandleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    router.push(`/blog/search?q=${search}`)
+    // router.push(`/blog/search?q=${search}`)
+
+    const posts = getPostsBySearch(search)
+    mutate(posts)
   }
 
   return (

@@ -12,7 +12,7 @@ export interface States {
   GetPostsBySearch?: (text: string) => Promise<void>
 }
 
-export const usePosts = create<States>()((set: any) => ({
+export const usePosts = create<States>((set: any) => ({
   posts: [],
   loading: false,
   error: null,

@@ -13,7 +13,7 @@ const Posts = ({posts}: IIPosts) => {
     <div>
       <ul className="list-disc">
         {
-          posts.map((post: any) =>
+          posts?.map((post: any) =>
             <li key={post.id}>
               <Link href={`/blog/${String(post.id)}`}>{post.title}</Link>
             </li>
