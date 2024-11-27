@@ -36,7 +36,8 @@ const PostSearch = () => {
           className={"border-2 border-sky-500 p-1 rounded-md"}
           onChange={(e) => setSearch(e.target.value)}
         />
-        <button type={"submit"} className={"bg-sky-200 p-1.5 rounded-md"}>Search</button>
+        <button type={"submit"} className={"bg-sky-200 p-1.5 rounded-md mb-8 " +
+          "active:bg-sky-300 active:translate-x-[1px] active:translate-y-[1px]"}>Search</button>
       </form>
     </>
   );
