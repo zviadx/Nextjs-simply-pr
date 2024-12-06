@@ -13,7 +13,7 @@ export function searchPosts (text: string, allPosts: IPosts[]) {
 
 
 export async function getPostsBySearch(text: string): Promise<IPosts[]>{
-  const res = await fetch(`/api/posts?q=${text}`)
+  const res = await fetch(`http://localhost:3000/api/posts?q=${text}`)
 
     return res.json()
 }

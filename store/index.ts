@@ -1,19 +1,23 @@
 import {create} from 'zustand'
-import { IPosts } from "@/services/types/types";
+import { IPosts, IUsers } from "@/services/types/types";
 import { getAllPost } from "@/services/app/getPosts";
+import { getUsers } from "@/services/app/getUsers";
 
 // Method 3 - სტეიტ მენეგერის გამოყენებით ზუსტანდი ამ შემთხვევაში ან ნებისმიერი სხვა
 
 export interface States {
   posts?: IPosts[],
+  users?: IUsers[],
   loading?: boolean,
   error?: string | null,
   GetPosts?: () => Promise<void>,
-  GetPostsBySearch?: (text: string) => Promise<void>
+  GetPostsBySearch?: (text: string) => Promise<void>,
+  GetUsers?: () => Promise<void>
 }
 
-export const usePosts = create<States>((set: any) => ({
+export const useStore = create<States>((set: any) => ({
   posts: [],
+  users: [],
   loading: false,
   error: null,
   GetPosts: async () => {
@@ -33,6 +37,15 @@ export const usePosts = create<States>((set: any) => ({
     } catch (err: any) {
       set({ error: err.message, loading: false })
     }
-    }
+    },
+
+    GetUsers: async () => {
+      try {
+        set({ loading: true })
+        const response = await getUsers()
+        set({ users: response, loading: false })
+    } catch (err: any) {
+        set({ error: err.message, loading: false })
+      }}
 }))
 

@@ -1,23 +1,33 @@
+"use client"
 
+import React, { useEffect } from "react";
+import SwrHookOfUsers from "@/components/swrHookOfUsers";
+import { getUsers } from "@/services/app/getUsers";
+import { IUsers } from "@/services/types/types";
+import { useStore } from "../../../store";
+import Link from "next/link";
+import Users from "@/components/Users";
 
-import React from "react";
-import { getLimitedPost } from "@/services/app/getPosts";
+const Contact =  () => {
+  const users: IUsers[] = useStore((state: any) => state.users)
+  const GetUsers = useStore((state: any) => state.GetUsers)
 
-const Contact = async () => {
-  const posts = await getLimitedPost(2)
-  console.log(posts)
+  useEffect(() => {
+    GetUsers()
+  }, [])
 
   return (
     <div className="flex justify-center mt-32">
-      <button
-          className={"border-2 border-sky-500 p-1.5 rounded-md active:translate-x-[2px] active:translate-y-[2px]"}
-          // onClick={() => {
-            // window.location.href = "/api/posts"
-            // console.log(getLimitedPost(2))
-          //}}
-      >
-        Download posts
-      </button>
+      <Users />
+      <ul className="list-disc">
+        {
+          users?.map(user =>
+            <li key={user.id}>
+              <Link href={`/blog/${String(user.id)}`}>{`${user.password} -- ${user.email}`}</Link>
+            </li>
+          )
+        }
+      </ul>
     </div>
   );
 };

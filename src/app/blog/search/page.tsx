@@ -7,7 +7,10 @@ interface IProps {
   }
 }
 
-async function SearchResults({searchParams}: IProps) {
+// მეთოდი 1 ↓
+async function SearchResults({ searchParams }: IProps) {
+
+  // 1 ↓
   const searchTerm = (await searchParams).q
   const posts = await getPostsBySearch(searchTerm)
 

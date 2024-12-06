@@ -8,7 +8,7 @@ import { getAllPost } from "@/services/app/getPosts";
 import Link from "next/link";
 import React from "react";
 
-const SwrHook = () => {
+const SwrHookOfPosts = () => {
   const {data: posts, isLoading} = useSWR("posts", getAllPost)
 
   return (
@@ -29,4 +29,4 @@ const SwrHook = () => {
 
 };
 
-export default SwrHook;
+export default SwrHookOfPosts;

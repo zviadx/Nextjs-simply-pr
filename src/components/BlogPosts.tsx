@@ -1,6 +1,6 @@
 "use client"
 
-import { States, usePosts } from "../../store";
+import { States, useStore } from "../../store";
 import { shallow } from "zustand/shallow";
 import { useEffect, useState } from "react";
 import PostSearch from "@/components/PostSearch";
@@ -10,9 +10,9 @@ import { IPosts } from "@/services/types/types";
 
 const BlogPosts = () => {
 
-    const posts = usePosts((state: any) => state.posts)
-    const loading = usePosts((state: any) => state.loading)
-    const GetPosts = usePosts((state: any) => state.GetPosts)
+    const posts = useStore((state: any) => state.posts)
+    const loading = useStore((state: any) => state.loading)
+    const GetPosts = useStore((state: any) => state.GetPosts)
 
     useEffect(() => {
       GetPosts()

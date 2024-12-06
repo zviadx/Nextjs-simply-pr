@@ -5,6 +5,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import React from "react";
+import Providers from "@/components/Providers";
 
 const inter = Inter({ subsets: ["vietnamese"] });
 
@@ -31,11 +32,13 @@ export default function RootLayout({ children, }: Readonly<{ children: React.Rea
       className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col 
       items-center justify-center min-h-screen`}
     >
-    <Header />
-    <main className='container'>
-      {children}
-    </main>
-    <Footer />
+      <Providers>
+        <Header />
+        <main className='container'>
+            {children}
+        </main>
+        <Footer />
+      </Providers>
     </body>
     </html>
   );

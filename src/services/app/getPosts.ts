@@ -1,6 +1,8 @@
-// Method 5 - routs
+"use client"
 
-import { IPosts } from "../types/types";
+// Method 5 - routes
+
+import { IPosts, IUsers } from "../types/types";
 
 export async function getPosts(id: string): Promise<IPosts>{
   const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
@@ -10,7 +12,6 @@ export async function getPosts(id: string): Promise<IPosts>{
   })
   return res.json()
 }
-
 
 export async function getAllPost(): Promise<IPosts[]>{
   // const res = await fetch("https://jsonplaceholder.typicode.com/posts", {

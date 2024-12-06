@@ -15,15 +15,15 @@ type TSearch = {
 
 const PostSearch = () => {
   const [search, setSearch] = useState<string>("")
-  // const router = useRouter()
+  const router = useRouter()
   const { mutate } = useSWR("posts")
 
   const onHandleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    // router.push(`/blog/search?q=${search}`)
+    router.push(`/blog/search?q=${search}`)
 
-    const posts = getPostsBySearch(search)
-    mutate(posts)
+    // const posts = getPostsBySearch(search)
+    // mutate(posts)
   }
 
   return (
