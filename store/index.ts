@@ -1,7 +1,8 @@
 import {create} from 'zustand'
-import { IPosts, IUsers } from "@/services/types/types";
 import { getAllPost } from "@/services/app/getPosts";
 import { getUsers } from "@/services/app/getUsers";
+import { IUsers } from "@/services/types/users";
+import { IPosts } from "@/services/types/posts";
 
 // Method 3 - სტეიტ მენეგერის გამოყენებით ზუსტანდი ამ შემთხვევაში ან ნებისმიერი სხვა
 
@@ -32,7 +33,7 @@ export const useStore = create<States>((set: any) => ({
   GetPostsBySearch: async (text: string) => {
     try {
       set({ loading: true })
-      const response = await fetch(`https://jsonplaceholder.typicode.com/posts?q=${text}`)
+      const response = await fetch(`http://localhost:3001/posts?q=${text}`)
       set({ posts: response.json(), loading: false })
     } catch (err: any) {
       set({ error: err.message, loading: false })

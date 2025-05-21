@@ -2,10 +2,11 @@
 // Method 5 - routs
 
 import { NextResponse } from "next/server";
-import { IPosts } from "@/services/types/types";
+
+import { IPosts } from "@/services/types/posts";
 
 const AllPosts = async () => {
-  const posts = await fetch("https://jsonplaceholder.typicode.com/posts", {
+  const posts = await fetch("http://localhost:3001/posts", {
       next: {
         revalidate: 60
       }

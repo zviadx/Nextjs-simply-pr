@@ -2,8 +2,6 @@ import { type AuthOptions, User } from "next-auth";
 import GoggleProvider from "next-auth/providers/google"
 import Credentials from "next-auth/providers/credentials"
 import { getUsers } from "@/services/app/getUsers";
-import toast from "react-hot-toast";
-import { IUsers } from "@/services/types/types";
 
 export const authConfig: AuthOptions = {
   providers: [
@@ -11,6 +9,7 @@ export const authConfig: AuthOptions = {
       clientId: process.env.GOOGLE_CLIENT_ID!,
       clientSecret: process.env.GOOGLE_SECRET!,
     }),
+
     Credentials({
       type: "credentials",
       name: "Credentials",
@@ -31,7 +30,9 @@ export const authConfig: AuthOptions = {
         return null
       }
     })
+  ],
 
-  ]
-
+  pages: {
+    signIn: "/signin"
+  },
 }

@@ -11,7 +11,7 @@ interface IProps {
 async function SearchResults({ searchParams }: IProps) {
 
   // 1 ↓
-  const searchTerm = (await searchParams).q
+  const searchTerm = ( searchParams).q
   const posts = await getPostsBySearch(searchTerm)
 
   return (
@@ -21,6 +21,6 @@ async function SearchResults({ searchParams }: IProps) {
       <Posts posts={posts} />
     </div>
   );
-};
+}
 
 export default SearchResults;

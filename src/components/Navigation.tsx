@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { TNavigateParams } from "@/services/types/types";
+import { TNavigateParams } from "@/services/types/navigation";
 import { useSession, signOut } from "next-auth/react";
 
 const Navigation = ({ Navigate }: { Navigate: TNavigateParams[] }) => {
@@ -12,9 +12,9 @@ const Navigation = ({ Navigate }: { Navigate: TNavigateParams[] }) => {
 
   const navigateOnSession = () => {
     if (!session?.data) {
-      return Navigate.filter(navEl => navEl.auth === false)
+      return Navigate.filter(navEl => !navEl.auth)
     } else {
-      return Navigate
+      return Navigate.filter(navEl => !navEl.signOut)
     }
   }
 
@@ -32,7 +32,7 @@ const Navigation = ({ Navigate }: { Navigate: TNavigateParams[] }) => {
         {
           session?.data
             ? <Link href={"#"} onClick={ () => signOut({ callbackUrl: "/" }) }>Sign Out</Link>
-            : <Link href={"/api/auth/signin"}>Sign In</Link>
+            : <Link href={"/signin"}>Sign In</Link>
         }
       </div>
     </div>

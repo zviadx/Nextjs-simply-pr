@@ -3,10 +3,10 @@
 import React, { useEffect } from "react";
 import SwrHookOfUsers from "@/components/swrHookOfUsers";
 import { getUsers } from "@/services/app/getUsers";
-import { IUsers } from "@/services/types/types";
 import { useStore } from "../../../store";
 import Link from "next/link";
 import Users from "@/components/Users";
+import { IUsers } from "@/services/types/users";
 
 const Contact =  () => {
   const users: IUsers[] = useStore((state: any) => state.users)
@@ -18,7 +18,7 @@ const Contact =  () => {
 
   return (
     <div className="flex justify-center mt-32">
-      <Users />
+      {/*<Users />*/}
       <ul className="list-disc">
         {
           users?.map(user =>

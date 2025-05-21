@@ -2,8 +2,11 @@ import NextAuth from "next-auth";
 import { authConfig } from "@/configs/auth";
 import { NextApiRequest, NextApiResponse } from "next";
 
-// const handler = NextAuth(authConfig)
-const handler = async (req: NextApiRequest, res: NextApiResponse) => {
+
+type CombineRequest = Request & NextApiRequest
+type CombineResponse = Response & NextApiResponse;
+
+const handler = async (req: CombineRequest, res: CombineResponse) => {
   return await NextAuth(req, res, authConfig);
 };
 

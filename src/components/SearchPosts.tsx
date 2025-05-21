@@ -3,9 +3,9 @@
 // Method 1 - ვტვირთავ ყველა პოსტს და ვფილტრავ კლიენტ კომპონენტში, აშკარად გამოუსადეგარი მიდგომა ბევრი პოსტის შემთხვევაში
 
 import React, { useEffect, useState } from "react";
-import { IPosts } from "@/services/types/types";
 import { searchPosts } from "@/services/app/serchPosts";
 import Posts from "@/components/Posts";
+import { IPosts } from "@/services/types/posts";
 
 export interface ISearchProps {
   allPosts: IPosts[]

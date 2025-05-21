@@ -4,10 +4,10 @@
 // არ ითვალისწინებს სტრინგით გაფილტვრას, თუმცა ნამდვილ სერვერზე იმუშავებს უპრობლემოდ
 
 import { FormEvent, useState } from "react";
-import { IPosts } from "@/services/types/types";
 import { useRouter } from "next/navigation";
 import useSWR from "swr";
 import { getPostsBySearch } from "@/services/app/serchPosts";
+import { IPosts } from "@/services/types/posts";
 
 type TSearch = {
   onSearch: IPosts[]

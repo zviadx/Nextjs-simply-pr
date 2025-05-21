@@ -1,6 +1,6 @@
-import { IPosts } from "../types/types";
 import { Simulate } from "react-dom/test-utils";
 import error = Simulate.error;
+import { IPosts } from "@/services/types/posts";
 
 export function searchPosts (text: string, allPosts: IPosts[]) {
 

@@ -1,8 +1,8 @@
 
 import Link from "next/link";
 import React from "react";
-import { IPosts } from "@/services/types/types";
 import { ISearchProps } from "@/components/SearchPosts";
+import { IPosts } from "@/services/types/posts";
 
 export interface IIPosts {
   posts: IPosts[]

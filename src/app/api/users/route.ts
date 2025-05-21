@@ -1,8 +1,8 @@
-import { IUsers } from "@/services/types/types"
 import { NextResponse } from "next/server";
+import { IUsers } from "@/services/types/users";
 
 export const AllUsers = async () => {
-  const users = await fetch("https://jsonplaceholder.typicode.com/users", {
+  const users = await fetch("http://localhost:3001/users", {
       next: {
         revalidate: 60
       }

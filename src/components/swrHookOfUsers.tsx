@@ -1,10 +1,10 @@
 "use client"
 
 import React from "react";
-import { IUsers } from "@/services/types/types";
 import useSWR from "swr";
 import { getUsers } from "@/services/app/getUsers";
 import Link from "next/link";
+import { IUsers } from "@/services/types/users";
 
 const SwrHookOfUsers = () => {
   const { data: users, isLoading } = useSWR("allUsers", getUsers)

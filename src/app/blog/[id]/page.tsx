@@ -1,7 +1,6 @@
-import React, { JSX } from "react";
+import React from "react";
 import { Metadata } from "next";
-import Link from "next/link";
-import { getPosts } from "@/services/app/getPosts";
+import { getAllPost, getPosts } from "@/services/app/getPosts";
 
 
 interface IPostProps<T> {
@@ -19,6 +18,14 @@ interface IPostProps<T> {
 //   return res.json()
 // }
 
+// export async function generateStaticParams(){
+//   const posts: any[] = await getAllPost()
+//   return posts.map((post) => ({
+//     slug: post.id.toString()
+//   })
+//   )
+// }
+
 export async function generateMetadata({ params }: IPostProps<string> ): Promise<Metadata>{
   const { id } = await params
   const post = await getPosts(id);
@@ -27,7 +34,7 @@ export async function generateMetadata({ params }: IPostProps<string> ): Promise
   }
 }
 
-async function Post({  params }: IPostProps<string>){
+async function Post({ params }: IPostProps<string>){
   const { id } = await params
   const post = await getPosts(id)
   console.log(post)
@@ -37,7 +44,7 @@ async function Post({  params }: IPostProps<string>){
       <h1>{post.title}</h1>
       <p className="top-1/3 text-black">{post.body}</p>
     </div>
-  );
-};
+  )
+}
 
 export default Post;

@@ -2,8 +2,8 @@
 
 
 import { getUsers } from "@/services/app/getUsers";
-import { IUsers } from "@/services/types/types";
 import toast from "react-hot-toast";
+import { IUsers } from "@/services/types/users";
 
 const Users = () => {
   // try {

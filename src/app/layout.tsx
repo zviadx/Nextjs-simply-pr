@@ -29,15 +29,14 @@ export default function RootLayout({ children, }: Readonly<{ children: React.Rea
   return (
     <html lang="en">
     <body
-      className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col 
-      items-center justify-center min-h-screen`}
+      className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col items-center mt-32 min-h-[calc(screen-32rem]`}
     >
       <Providers>
         <Header />
         <main className='container'>
             {children}
         </main>
-        <Footer />
+        {/*<Footer />*/}
       </Providers>
     </body>
     </html>

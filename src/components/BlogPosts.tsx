@@ -5,7 +5,8 @@ import { shallow } from "zustand/shallow";
 import { useEffect, useState } from "react";
 import PostSearch from "@/components/PostSearch";
 import Posts from "@/components/Posts";
-import { IPosts } from "@/services/types/types";
+
+import { IPosts } from "@/services/types/posts";
 
 
 const BlogPosts = () => {

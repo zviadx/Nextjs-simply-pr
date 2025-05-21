@@ -1,5 +1,4 @@
-
-import { IUsers } from "@/services/types/types";
+import { IUsers } from "@/services/types/users";
 
 
 export async function getUsers(): Promise<IUsers[]>{
